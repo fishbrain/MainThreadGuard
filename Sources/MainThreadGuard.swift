@@ -20,7 +20,7 @@ public class Guard {
   }
 }
 
-extension UIView {
+@objc extension UIView {
 
   static func setupForMainThreadGuard() {
     struct Static {
@@ -63,17 +63,17 @@ extension UIView {
 
   // MARK: Method Swizzling
 
-  func guard_setNeedsLayout() {
+  @objc func guard_setNeedsLayout() {
     guard_check()
     guard_setNeedsLayout()
   }
 
-  func guard_setNeedsDisplay() {
+  @objc func guard_setNeedsDisplay() {
     guard_check()
     guard_setNeedsDisplay()
   }
 
-  func guard_setNeedsDisplayInRect(_ rect: CGRect) {
+  @objc func guard_setNeedsDisplayInRect(_ rect: CGRect) {
     guard_check()
     guard_setNeedsDisplayInRect(rect)
   }
